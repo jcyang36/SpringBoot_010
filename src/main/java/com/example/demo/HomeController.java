@@ -48,6 +48,7 @@ public class HomeController {
     @RequestMapping("/delete/{id}")
     public String delCourse(@PathVariable("id") long id, Model model){
         model.addAttribute("course",courseRepository.findOne(id));
+        courseRepository.delete(id);
         return "redirect:/";
     }
 
